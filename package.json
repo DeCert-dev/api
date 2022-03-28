@@ -1,0 +1,39 @@
+{
+  "name": "decertapi",
+  "version": "0.1.2",
+  "description": "Api to upload certificates and mint to users account",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeCert-dev/api.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "bartick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeCert-dev/api/issues"
+  },
+  "homepage": "https://github.com/DeCert-dev/api#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.4",
+    "axios": "^0.26.1",
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.2.8",
+    "morgan": "^1.10.0",
+    "web3": "^1.7.1",
+    "web3.storage": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
