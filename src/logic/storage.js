@@ -89,7 +89,9 @@ async function uploadCertificate(body){
         onRootCidReady: (rootCid) => {
             uploadJson(client, rootCid, body, now, fileName);
         },
-    });
+    }).catch((err) => {
+        console.log(err);
+    })
 };
 
 module.exports = {
