@@ -1,9 +1,12 @@
 const router = require('express').Router();
 
+/**
+ * @description Returns the basic welcome message
+ */
 router.route('/')
 .post((_req, res) => {
     res.json({
-        message: 'Welcome to the API And This is the version 1 of out api',
+        message: 'Welcome to the API And This is the version 1 of our decert api',
         type: 0
     })
 })

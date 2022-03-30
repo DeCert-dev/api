@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Business = require('../schema/business');
 
+// Checks body to avoid error
 function checkBody(body) {
     if (!body.name) {
         let err = new Error('Missing name');
@@ -21,6 +22,19 @@ function checkBody(body) {
     return body
 }
 
+/**
+ * 
+ * @param {json} req
+ * @param {json} res
+ * 
+ * res.body: {
+ *         "email": "useremail@example.com",
+ *         "name": "user name",
+ *         "companyName": "company name",
+ *  }
+ * 
+ * @description signups a new user
+ */
 router
 .route('/')
 .post((req, res) => {

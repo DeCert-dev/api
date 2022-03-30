@@ -3,6 +3,7 @@ require('dotenv').config();
 
 var tempData = new Map();
 
+// auth middleware to check auth in routes
 module.exports = (req, _res, next) => {
     if (req.url==='/signup' || req.url==='/login' || req.url==='/minted') {
         if (req.headers.authorization!==`Bearer ${process.env.ADMIN_KEY}`) {

@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+// Business Schema for mongodb
 const businessSchema = new Schema({
     name: {
         type: String,

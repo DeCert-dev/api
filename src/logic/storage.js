@@ -3,6 +3,7 @@ const { callContract } = require('./contactChain');
 const Certificates = require('./../schema/certificates');
 require('dotenv').config();
 
+// Created a unique uid for the file name.
 function uid() {
     const head = Date.now().toString(36);
     const tail = Math.random().toString(36).substring(2);

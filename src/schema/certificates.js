@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+// certificate Schema for minted certificates
 const certificatesSchema = new Schema({
     name: {
         type: String,
