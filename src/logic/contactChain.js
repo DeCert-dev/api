@@ -5,8 +5,8 @@ require('dotenv').config();
 
 // Java Script Object to store the contract adress of rinkeby network and mumbai network
 const contractAdress = {
-    rinkeby: '0xAcA7E53c64739648e7f464B8f45a18947142D4B2',
-    mumbai: '0xF1701675da6851267680e9f957152de47FD59b07'
+    rinkeby: process.env.RINKEBY_CONTRACT_ADDRESS,
+    mumbai: process.env.MUMBAI_CONTRACT_ADDRESS
 }
 
 // Javascript object to store the providerOrUrl for different networks
