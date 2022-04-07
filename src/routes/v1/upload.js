@@ -161,6 +161,7 @@ router
             message: 'Uploaded successfully'
         })
     }
+    req.session = null;
 })
 .all((_res, _req, next) => {
     let err = new Error('Method not allowed');
