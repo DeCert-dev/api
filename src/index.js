@@ -18,7 +18,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true, limit: '21mb' }));
 app.use(bodyParser.json({ limit: '21mb' }));
 
-app.use(session({ secret: 'DeCert', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: true  }));
+app.use(session({ secret: 'DeCert', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false  }));
 
 app.use(require('./logic/auth'));
 
