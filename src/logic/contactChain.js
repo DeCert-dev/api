@@ -36,7 +36,7 @@ async function callContract(cid, filename, type, recieversAddress) {
     const accounts = await web3.eth.getAccounts();
 
     const contract = new web3.eth.Contract(abiJSON.abi, contractAdress[type]);
-    const estimatedGas = await contract.methods.mint.estimatedGas({
+    const estimatedGas = await contract.methods.mint(recieversAddress, `ipfs://${cid}/${filename}.json`).estimatedGas({
         from: accounts[0],
     }).catch(err => {
         console.log(err);
