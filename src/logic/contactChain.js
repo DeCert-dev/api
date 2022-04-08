@@ -44,7 +44,7 @@ async function callContract(cid, filename, type, recieversAddress) {
     })
     await contract.methods.mint(recieversAddress, `ipfs://${cid}/${filename}.json`).send({
         from: accounts[0],
-        gas: estimatedGas + 450000,
+        gas: estimatedGas + 500000,
     }).catch((err) => {
         console.log(err);
     });
