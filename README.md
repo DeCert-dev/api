@@ -1,7 +1,4 @@
 # DeCert API Documentation
-
-  
-
 The DeCert API allows users to simply mint non-transferable NFT certificates with a simple single and fast API
 
 #### Install the required library
@@ -24,7 +21,7 @@ The DeCert API allows users to simply mint non-transferable NFT certificates wit
 ## Example Code
     const axios = require('axios');
     const fs = require('fs');
-    const image = fs.readFileSync('./3.jpeg');
+    const image = fs.readFileSync('<certificate_image_file_path>');
 
     const body = {
         "name": "Certificate of Appreciation",
@@ -32,7 +29,7 @@ The DeCert API allows users to simply mint non-transferable NFT certificates wit
         "description": "provided as a token of Appreciation",
         "validFrom": Date.now(),
         "validTo": -1,
-        "recieversAddress": "0xF8FD64b9E74076FC2833c7de85fac6204390FA4A",
+        "recieversAddress": "<add_recievers_account_address>",
         "type": 2,
     }
 
@@ -40,7 +37,7 @@ The DeCert API allows users to simply mint non-transferable NFT certificates wit
         body, 
         {
             headers: {
-            "Authorization": "Bearer 62324ec714797e008a8409e6",
+            "Authorization": "Bearer <add_DeCert_API_KEY>",
         },
         maxContentLength: Infinity,
         maxBodyLength: Infinity,
