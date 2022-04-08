@@ -5,6 +5,20 @@ The DeCert API allows users to simply mint non-transferable NFT certificates wit
 	npm install axios
 
 #### Data to be sent to the API 
+Data Sets:
+|Key|Required|Data Required|Description|
+|---|---|---|---|
+|name|true|String|Name of the certificate|
+|description|true|String|Description of the certificate|
+|validFrom|true|Integer|Epoched time needed to be sent|
+|validTo|true|Integer|Epoched time needed to be sent. Send -1 to make the certificate show that it never expire|
+|image|true|Buffer|Image Buffer after reading file|
+|recieversAddress|true|String|Metamask account public address of users|
+|type|true|Integer|1 for Ethereum and 2 for Polygon|
+
+
+Example:
+
 	 {
 	 "name": "DeCertificate",
 	 "description": "This is a test certificate for testing purposes dedicated to DeCert",
