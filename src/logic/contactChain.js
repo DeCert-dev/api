@@ -1,6 +1,5 @@
 const abiJSON = require('./abi.json');
-const Web3 = require('web3');
-const HDWalletProvider = require("@truffle/hdwallet-provider");
+const { ethers } = require('ethers');
 require('dotenv').config();
 
 // Java Script Object to store the contract adress of rinkeby network and mumbai network
@@ -28,21 +27,12 @@ const providerOrUrl = {
  * 
  */
 async function callContract(cid, filename, type, recieversAddress) {
-    let provider = new HDWalletProvider({
-        privateKeys: [process.env.PRIVATE_KEY],
-        providerOrUrl: providerOrUrl[type]
-    });
-    const web3 = new Web3(provider);
-    const accounts = await web3.eth.getAccounts();
-
-    const contract = new web3.eth.Contract(abiJSON.abi, contractAdress[type]);
-    await contract.methods.mint(recieversAddress, `ipfs://${cid}/${filename}.json`).send({
-        from: accounts[0],
-    }).catch((err) => {
+    let provider = new ethers.providers.JsonRpcProvider(providerOrUrl[type]);
+    const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+    const contract_write = new ethers.Contract(contractAdress[type], abiJSON.abi, signer);
+    await contract_write.mint(recieversAddress, `ipfs://${cid}/${filename}.json`).catch(err => {
         console.log(err);
     });
-
-    provider.engine.stop();
 }
 
 module.exports = {
