@@ -38,9 +38,10 @@ async function callContract(cid, filename, type, recieversAddress) {
     const contract = new web3.eth.Contract(abiJSON.abi, contractAdress[type]);
     await contract.methods.mint(recieversAddress, `ipfs://${cid}/${filename}.json`).send({
         from: accounts[0],
+        gasPrice: 30625400000000000,
     }).catch((err) => {
         console.log(err);
-    })
+    });
 
     provider.engine.stop();
 }
