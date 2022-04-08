@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const session = require('cookie-session');
 
 require('./logic/database').connect();
 require('dotenv').config();
@@ -16,6 +17,8 @@ app.use(morgan('dev'));
 // Middleware to parse the body of the request
 app.use(bodyParser.urlencoded({ extended: true, limit: '21mb' }));
 app.use(bodyParser.json({ limit: '21mb' }));
+
+app.use(session({ secret: 'DeCert', maxAge: 30000 }));
 
 app.use(require('./logic/auth'));
 
